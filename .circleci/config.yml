@@ -149,10 +149,9 @@ jobs:
       - image: alpine:latest
     steps:
       - run: apk add --update curl
-      - persist_to_workspace:
-          root: ~/
-          paths:
-            - inventory1.txt
+      - attach_workspace:
+          at: ~/
+      - run: cat ~/inventory1.txt
       - run: python dst-ip.py inventory1.txt dst-ip.txt
       - run:
           name: smoke test
