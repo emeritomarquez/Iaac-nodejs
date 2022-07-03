@@ -152,11 +152,11 @@ jobs:
       - attach_workspace:
           at: ~/
       - run: cat ~/inventory1.txt
-      - run: python dst-ip.py inventory1.txt dst-ip.txt
+      - run: python ~/dst-ip.py ~/inventory1.txt ~/dst-ip.txt
       - run:
           name: smoke test
           command: |
-            URL="cat dst-ip.txt"
+            URL="cat ~/dst-ip.txt"
             # Test if website exists
             if curl -s --head ${URL}
             then
