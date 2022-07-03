@@ -148,11 +148,13 @@ jobs:
     docker:
       - image: python:3.7-alpine3.11 
     steps:
-      - run: yum install apk
-#      - run: apk add --update curl
+      - run: apk add --update curl
       - attach_workspace:
           at: ~/
       - run: cat ~/inventory1.txt
+      - run: target-ip=$(<inventory1.txt
+
+
       - run: ls -al /
       - run: ls -al ~
       - run: ls -al ~/project
