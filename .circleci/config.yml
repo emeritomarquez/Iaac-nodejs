@@ -146,13 +146,13 @@ jobs:
   # Exercise: Smoke Testing
   smoke_test:
     docker:
-      - image: amazon/aws-cli 
+      - image: python:3.7-alpine3.11 
     steps:
       - run: apk add --update curl
       - attach_workspace:
           at: ~/
       - run: cat ~/inventory1.txt
-      - run: python ~/dst-ip.py ~/inventory1.txt ~/dst-ip.txt
+      - run: python dst-ip.py ~/inventory1.txt ~/dst-ip.txt
       - run:
           name: smoke test
           command: |
@@ -164,8 +164,12 @@ jobs:
             else
               return 1
             fi
-      - destroy_environment
 
+  rollback:
+    docker:
+      - image: amazon/aws-cli
+    steps:
+      - destroy_environment
 
   # Exercise: Promote to Production - Job 1
   # Prerequisite:
@@ -280,6 +284,9 @@ workflows:
       - smoke_test:
           requires:
             - configure_infrastructure
+      - rollback:
+          requires:
+            - smoke_test:
 #      - create_and_deploy_front_end
 #      - promote_to_production:
 #          requires:
