@@ -163,7 +163,7 @@ jobs:
       - run: echo "f.close()" >> dst-ip.py
       - run: echo "rows = []" >> dst-ip.py
       - run: echo "for line in lines:" >> dst-ip.py
-      - run: echo "    if line != \'[hosts]\\\n\':" >> dst-ip.py
+      - run: echo "    if line != \'[hosts]\':" >> dst-ip.py
       - run: echo "        rows.append(line)" >> dst-ip.py
       - run: echo "print(rows)" >> dst-ip.py
       - run: echo "g = open(sys.argv[2], 'w+')" >> dst-ip.py
