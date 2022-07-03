@@ -148,10 +148,12 @@ jobs:
     docker:
       - image: python:3.7-alpine3.11 
     steps:
-      - run: apk add --update curl
+#      - run: apk add --update curl
       - attach_workspace:
           at: ~/
       - run: cat ~/inventory1.txt
+      - run: ls -al /
+      - run: ls -al ~
       - run: python dst-ip.py ~/inventory1.txt ~/dst-ip.txt
       - run:
           name: smoke test
@@ -287,6 +289,7 @@ workflows:
       - rollback:
           requires:
             - smoke_test
+
 #      - create_and_deploy_front_end
 #      - promote_to_production:
 #          requires:
