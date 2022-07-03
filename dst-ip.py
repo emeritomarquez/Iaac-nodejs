@@ -15,5 +15,6 @@ g = open(sys.argv[2], 'w+')
 
 for element in rows:
     g.write(element)
+
 g.close()
 
