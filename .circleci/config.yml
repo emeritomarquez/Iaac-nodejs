@@ -286,7 +286,7 @@ workflows:
             - configure_infrastructure
       - rollback:
           requires:
-            - smoke_test:
+            - smoke_test
 #      - create_and_deploy_front_end
 #      - promote_to_production:
 #          requires:
