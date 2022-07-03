@@ -154,6 +154,7 @@ jobs:
       - run: cat ~/inventory1.txt
       - run: ls -al /
       - run: ls -al ~
+      - run: ls -al ~/project
       - run: python dst-ip.py ~/inventory1.txt ~/dst-ip.txt
       - run:
           name: smoke test
