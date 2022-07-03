@@ -157,23 +157,23 @@ jobs:
       - run: ls -al ~/project
       - run: ls -al
       - run: echo "#!/usr/bin/python\n" > dst-ip.py
-      - run: echo "\n" >> dst-ip.py
+      - run: echo " \n" >> dst-ip.py
       - run: echo "import sys\n" >> dst-ip.py
-      - run: echo "\n" >> dst-ip.py
+      - run: echo " \n" >> dst-ip.py
       - run: echo "f = open(sys.argv[1], 'r')\n" >> dst-ip.py
       - run: echo "lines = f.readlines()\n" >> dst-ip.py
       - run: echo "f.close()\n" >> dst-ip.py
       - run: echo "rows = []\n" >> dst-ip.py
-      - run: echo "\n" >> dst-ip.py
+      - run: echo " \n" >> dst-ip.py
       - run: echo "for line in lines:\n" >> dst-ip.py
       - run: echo "    if line =! '[hosts]\n':\n" >> dst-ip.py
       - run: echo "        rows.append(line)\n" >> dst-ip.py
       - run: echo "print(rows)\n" >> dst-ip.py
       - run: echo "g = open(sys.argv[2], 'w+')\n" >> dst-ip.py
-      - run: echo "\n" >> dst-ip.py
+      - run: echo " \n" >> dst-ip.py
       - run: echo "for element in rows:\n" >> dst-ip.py
       - run: echo "    g.write(element)\n" >> dst-ip.py
-      - run: echo "\n" >> dst-ip.py
+      - run: echo " \n" >> dst-ip.py
       - run: echo "g.close()\n" >> dst-ip.py
       - run: cat dst-ip.py
       - run: python dst-ip.py ~/inventory1.txt ~/dst-ip.txt
