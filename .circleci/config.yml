@@ -148,7 +148,7 @@ jobs:
     docker:
       - image: python:3.7-alpine3.11 
     steps:
-      - run: sudo apt install apk
+      - run: apt install apk
 #      - run: apk add --update curl
       - attach_workspace:
           at: ~/
