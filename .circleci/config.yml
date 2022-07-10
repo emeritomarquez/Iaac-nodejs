@@ -182,6 +182,7 @@ jobs:
           name: smoke test
           command: |
             URL=$(cat ~/inventory1.txt)
+            od -c ~/inventory1.txt
             # Test if website exists
             if curl -s --head ${URL}
             then
