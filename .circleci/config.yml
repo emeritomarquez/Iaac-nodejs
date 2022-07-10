@@ -43,6 +43,7 @@ jobs:
       - run: echo HELLO
       - run: echo WORLD
       - run: echo $_env_name
+      - run: ls -al
 
   # Exercise: Infrastructure Creation
   # Exercise - Rollback
@@ -58,6 +59,7 @@ jobs:
               --template-file template.yml \
               --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:5} \
               --region us-west-2
+       - run: ls -al
       # Fail the job intentionally to simulate an error.
       # Uncomment the line below if you want to fail the current step
       #- run: return 1
@@ -128,6 +130,7 @@ jobs:
             apk add --update ansible
       - run: ls -al /
       - run: ls -al ~
+      - run: ls -al
       - run: cat ~/inventory1.txt
       - run: sleep 60 
 #      - run: ansible -vvv asdf | grep ansible.cfg
