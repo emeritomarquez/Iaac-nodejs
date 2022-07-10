@@ -10,6 +10,7 @@ for line in lines:
     if line != "[hosts]\n":
         rows.append(line)
 
+
 print(rows)
 g = open(sys.argv[2], 'w+')
 for element in rows:
