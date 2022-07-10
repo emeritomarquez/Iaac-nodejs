@@ -138,10 +138,10 @@ jobs:
           name: Configure server
           command: |
             ansible-playbook -v -i ~/inventory1.txt --private-key=ec2-emerito.pem main.yml
-      - persist_to_workspace:
-          root: ~/
-          paths:
-            - inventory1.txt
+#      - persist_to_workspace:
+#          root: ~/
+#          paths:
+#            - inventory1.txt
 
   # Exercise: Smoke Testing
   smoke_test:
