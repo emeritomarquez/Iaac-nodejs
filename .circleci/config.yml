@@ -151,7 +151,7 @@ jobs:
       - run: apk add --update curl
       - attach_workspace:
           at: ~/
-      - run: cat ~/inventory1.txt
+      - run: cat inventory1.txt
 
 #Copy a file to an environment variable
 #!/bin/bash
