@@ -203,7 +203,7 @@ jobs:
             else
               return 1
             fi
-      - run: return 1
+#      - run: return 1
       - run:
           name: rollback
           command: 
