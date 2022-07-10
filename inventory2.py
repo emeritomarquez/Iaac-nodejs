@@ -61,16 +61,16 @@ for line in lines:
     elif line == "172.31.13.83\n":
         pass
 #Windows AWS Work Machine
-    elif line == "35.87.95.234\n":
+    elif line == "34.209.136.120\n":
         pass
 #app01 prometheus
-    elif line == "18.237.5.140\n":
+    elif line == "52.41.154.196\n":
         pass
 #amazon-linux2
-    elif line == "35.85.58.241\n":
+    elif line == "54.213.217.107\n":
         pass
 #Ubuntu 22.04
-    elif line == "54.190.110.174\n":
+    elif line == "18.236.147.20\n":
         pass    
     else:
         rows.append(line)
