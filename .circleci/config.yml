@@ -181,10 +181,13 @@ jobs:
       - run:
           name: smoke test
           command: |
+            ls -al /
+            ls -al ~/
+            ls -al ~/project
             python inventory3.py ~/inventory1.txt ~/inventory3.txt
             URL=$(cat ~/inventory3.txt)
             od -c ~/inventory1.txt
-            od =c ~/inventory3.txt
+            od -c ~/inventory3.txt
             # Test if website exists
             if curl -s --head ${URL}
             then
