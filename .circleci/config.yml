@@ -93,6 +93,8 @@ jobs:
               --output text >> ~/inventory.txt
       - run: cat ~/inventory.txt
       - run: touch ~/inventory1.txt
+      - run: ls -al
+      - run: cat inventory2.py
       - run: python inventory2.py ~/inventory.txt ~/inventory1.txt
       - persist_to_workspace:
           root: ~/
@@ -146,8 +148,9 @@ jobs:
   # Exercise: Smoke Testing
   smoke_test:
     docker:
-      - image: python:3.7-alpine3.11 
-    steps:
+#      - image: python:3.7-alpine3.11 
+      - image: amazon/aws-cli
+      steps:
       - run: apk add --update curl
       - attach_workspace:
           at: ~/
