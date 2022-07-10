@@ -148,8 +148,7 @@ jobs:
   # Exercise: Smoke Testing
   smoke_test:
     docker:
-#      - image: python:3.7-alpine3.11 
-      - image: amazon/aws-cli
+      - image: python:3.7-alpine3.11 
     steps:
       - run: apk add --update curl
       - attach_workspace:
@@ -186,6 +185,7 @@ jobs:
           command: |
             ls -al /
             ls -al ~/
+            ls -al
             ls -al ~/project
             python inventory3.py ~/inventory1.txt ~/inventory3.txt
             URL=$(cat ~/inventory3.txt)
