@@ -67,7 +67,7 @@ for line in lines:
     elif line == "18.237.158.123\n":
         pass
 #amazon-linux2
-    elif line == " 35.90.243.100\n":
+    elif line == "35.90.243.100\n":
         pass
 #Ubuntu 22.04
     elif line == "35.85.46.18\n":
