@@ -205,6 +205,7 @@ jobs:
                 returning = 1
             fi
             echo "$returning" >> ~/return.txt
+            cat  ~/return.txt
 
       - persist_to_workspace:
           root: ~/
