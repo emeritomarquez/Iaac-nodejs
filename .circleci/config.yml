@@ -198,10 +198,10 @@ jobs:
             od -c ~/inventory3.txt
             # Test if website exists
             if curl -s --head ${URL}
-            then
-              return 0
-            else
-              return 1
+              then
+            #              return 0
+            #            else
+                return 1
             fi
 #      - run: return 1
       - run:
