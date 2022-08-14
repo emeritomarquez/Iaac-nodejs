@@ -149,7 +149,7 @@ jobs:
           paths:
             - inventory1.txt
 
-  # Exercise: Smoke Testing
+# Exercise: Smoke Testing
   smoke_test:
     docker:
       - image: python:3.7-alpine3.11 
@@ -165,7 +165,6 @@ jobs:
 #!/bin/bash
 #value=$(<config.txt)
 #echo "$value"
-
 #      - run: ls -al /
 #      - run: ls -al ~
 #      - run: ls -al ~/project
@@ -186,6 +185,7 @@ jobs:
 #      - run: echo "g.close()" >> dst-ip.py
 #      - run: cat dst-ip.py
 #      - run: python dst-ip.py ~/inventory1.txt ~/dst-ip.txt
+
       - run:
           name: smoke test
           command: |
@@ -200,10 +200,17 @@ jobs:
             # Test if website exists
             if curl -s --head ${URL}
               then
-                return 0
+                returning = 0
             else
-                return 1
+                returning = 1
             fi
+            echo "$returning" >> ~/return.txt
+
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - return.txt
+
 #      - run: return 1
 #      - run:
 #          name: rollback
@@ -213,6 +220,13 @@ jobs:
     docker:
       - image: amazon/aws-cli
     steps:
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: retrieve return value
+          command: |
+            returning = $(<return.txt)
+            return "$returning"
       - destroy_environment
 #        when: on_fail
 
