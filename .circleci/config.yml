@@ -204,32 +204,9 @@ jobs:
             else
                 returning = 1
             fi
-#            echo "$returning" >> ~/return.txt
-#            cat  ~/return.txt
-#      - persist_to_workspace:
-#          root: ~/
-#          paths:
-#            - return.txt
 
-#      - run: return 1
-#      - run:
-#          name: rollback
-#          command: 
-
-#  rollback:
-#    docker:
-#      - image: amazon/aws-cli
-#    steps:
-#      - attach_workspace:
-#          at: ~/
-#      - run:
-#          name: retrieve return value
-#          command: |
-#            returning = $(<~/return.txt)
-#            return "$returning"
-      - run: 
-          destroy_environment
-          when: on_fail
+      - destroy_environment
+        when: on_fail
 
   # Exercise: Promote to Production - Job 1
   # Prerequisite:
