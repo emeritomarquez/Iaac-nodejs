@@ -206,7 +206,6 @@ jobs:
             fi
 
       - destroy_environment
-#        when: on_fail
 
   # Exercise: Promote to Production - Job 1
   # Prerequisite:
